@@ -1,0 +1,60 @@
+---
+title: "gigigi"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r}
+setwd("/Users/angielin/Documents/NYCDSA Course/ProjectWebSc/zocdoc")
+data <- read.csv("zocdoc.csv", stringsAsFactors = FALSE)
+zips <- read.csv("zipcodeByBou.csv", stringsAsFactors = FALSE)
+dataset <- left_join(data, zips)
+```
+
+```{r}
+df <- dataset %>% 
+  mutate(review = as.numeric(gsub("reviews", " ", numReviews))) %>%
+  separate_rows(specialty, sep = ",")
+
+#df1 <- dataset %>% 
+#  mutate(review = as.numeric(gsub("reviews", " ", numReviews)))
+
+write.csv(df, "zocdoc2.csv")
+#write.csv(df1, "zocdoc3.csv")
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
