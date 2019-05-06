@@ -18,7 +18,6 @@ library(ggplot2)
 You can also embed plots, for example:
 
 ```{r}
-setwd("/Users/angielin/Documents/NYCDSA Course/ProjectWebSc/zocdoc")
 data <- read.csv("zocdoc.csv", stringsAsFactors = FALSE)
 zips <- read.csv("zipcodeByBou.csv", stringsAsFactors = FALSE)
 dataset <- left_join(data, zips)
